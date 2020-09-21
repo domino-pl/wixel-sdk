@@ -24,6 +24,8 @@ apps/*/*
 *.sym
 *.wxl
 
+!bacawix_bin/*.wxl
+
 # Ignore eclipse files
 .cproject
 .project
