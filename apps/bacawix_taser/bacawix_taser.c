@@ -6,7 +6,7 @@
 #include <usb_com.h>
 #include <radio_queue.h>
 
-uint8 CODE param_poweron_key = 0x17;
+int32 CODE param_poweron_key = 0x17; // T = 23
 
 void updateLeds(){
     usbShowStatusWithGreenLed();
@@ -24,7 +24,7 @@ void main(){
     packet = radioQueueTxCurrentPacket();
     if (packet != 0){
         packet[0] = 1;
-        packet[1] = param_poweron_key;
+        packet[1] = (uint8)param_poweron_key;
         radioQueueTxSendPacket();
     }
 
