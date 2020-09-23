@@ -1,3 +1,30 @@
+Kompilacja pod Windowsem:
+1. Zainstalować "Wixel Windows Drivers and Software" oraz "Wixel 
+Development Bundle" for Windows dostępne pod adresem:
+https://www.pololu.com/product/1336/resources
+2. Pobrać jako ZIP(pod przyciskiem "Code") lub sklonować to 
+repozytorium.
+3. Uruchomić plik wsadowy make_all.bat
+
+Kompilacja pod linuksem (testowane na Debian 10):
+1. Zainstalować:
+sudo apt install libusb-1.0-0-dev libqtgui4 sdcc
+2. Pobrać jako ZIP(pod przyciskiem "Code") lub sklonować to 
+repozytorium.
+3. Wejść w terminalu do katalogu repozytorium.
+4. Wydać polecenie:
+make
+
+Aby wgrać skompilowany program(plik wxl dostępny w podkatalogu danej 
+aplikacji w katalogu apps) na moduł wixel posłużyć się
+programem z pakietu "Wixel Software" dostępnym pod adresem:
+https://www.pololu.com/product/1336/resources
+dla danej platformy.
+
+
+------------------------------------------------------------------------
+
+
 Pololu Wixel Software Development Kit (SDK)
 
 This package contains code and Makefiles that will help you create
