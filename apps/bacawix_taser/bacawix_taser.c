@@ -15,13 +15,13 @@ void updateLeds(){
 uint8 usb_initialized = 0;
 uint32 start_time = 0;
 uint32 usb_init_delay_ms = 1000;
-
+uint8 XDATA * packet = 0;
 
 void main(){
     systemInit();
     radioQueueInit();
 
-    uint8 XDATA * packet = radioQueueTxCurrentPacket();
+    packet = radioQueueTxCurrentPacket();
     if (packet != 0){
         packet[0] = 1;
         packet[1] = param_poweron_key;

@@ -12,6 +12,7 @@ void updateLeds(){
 }
 
 uint8 key_sent = 0;
+uint8 * packet = 0;
 
 void receiverService(){
     if(key_sent){
@@ -26,7 +27,7 @@ void receiverService(){
         return;
     }
     
-    uint8 * packet = radioQueueRxCurrentPacket();
+    packet = radioQueueRxCurrentPacket();
     if(packet){
         usbHidKeyboardInput.keyCodes[0] = packet[1];
         usbHidKeyboardInputUpdated = 1;
