@@ -54,19 +54,22 @@ uint32 led_red_last_on_time = 0;
 uint32 led_red_on_time = 1000;
 
 uint8 compare_bytes(uint8 * a, uint8 * b, uint8 n){
-    for(uint8 i = 0; i<n; i++)
+    uint8 i;
+    for(i = 0; i<n; i++)
         if(a[i] != b[i])
             return 0;
     return 1;
 }
 
 void copy_bytes(uint8 * from, uint8 * to, uint8 n){
-    for(uint8 i = 0; i<n; i++)
+    uint8 i;
+    for(i = 0; i<n; i++)
         to[i] = from[i];
 }
 
 uint8 massage_position_in_buffor(){
-    for(uint8 i = 0; i < BUFFER_SIZE; i++)
+    uint8 i;
+    for(i = 0; i < BUFFER_SIZE; i++)
         if(compare_bytes(packet+1, buffer+11*i+1, 5))
             return i;
     return 254;
@@ -78,7 +81,8 @@ uint32 * first_time(uint8 position){
 
 uint8 oldest_position_in_buffer(){
     uint8 oldest_position = 0;
-    for(uint8 i = 1; i < BUFFER_SIZE; i++)
+    uint8 i;
+    for(i = 1; i < BUFFER_SIZE; i++)
         if(*first_time(oldest_position) > *first_time(i))
             oldest_position = i;
     return oldest_position;
@@ -125,7 +129,8 @@ void updateLeds(){
 }
 
 void bufferSevice(){
-    for(uint8 i = 0; i < BUFFER_SIZE; i++){
+    uint8 i;
+    for(i = 0; i < BUFFER_SIZE; i++){
         if(buffer[i*11] == 254 || buffer[i*11+6] == 0)
             continue;
         

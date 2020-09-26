@@ -46,11 +46,14 @@ void send_packet(){
 }
 
 void main(){
+	uint8 i;
+	uint8 j;
+	
     systemInit();
     radioQueueInit();
 
-    for(uint8 i=0; i<PACKET_SERIES_COUNT; i++){
-        for(uint8 j=0; j<PACKET_SERIES_SIZE; j++)
+    for(i=0; i<PACKET_SERIES_COUNT; i++){
+        for(j=0; j<PACKET_SERIES_SIZE; j++)
             send_packet();
         
         time = getMs();
